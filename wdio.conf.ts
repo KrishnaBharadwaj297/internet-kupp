@@ -130,7 +130,17 @@ export const config: WebdriverIO.Config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec", ["allure", { outputDir: "allure-results" }]],
+  reporters: [
+    "spec",
+    ["allure", { outputDir: "allure-results" }],
+    [
+      "wdio-cucumberjs-json-reporter",
+      {
+        jsonFolder: "./reports/json/",
+        language: "en",
+      },
+    ],
+  ],
 
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
@@ -315,8 +325,25 @@ export const config: WebdriverIO.Config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  // onComplete: function(exitCode, config, capabilities, results) {
-  // },
+  onComplete: function (exitCode, config, capabilities, results) {
+    const report = require("multiple-cucumber-html-reporter");
+
+    report.generate({
+      jsonDir: "./reports/json/",
+      reportPath: "./reports/html/",
+      metadata: {
+        browser: {
+          name: "chrome",
+          version: "latest",
+        },
+        device: "Local Test Machine",
+        platform: {
+          name: "Windows",
+          version: "10",
+        },
+      },
+    });
+  },
   /**
    * Gets executed when a refresh happens.
    * @param {string} oldSessionId session ID of the old session

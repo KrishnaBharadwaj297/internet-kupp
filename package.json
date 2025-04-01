@@ -11,12 +11,14 @@
     "@wdio/spec-reporter": "^9.11.0",
     "cucumber-html-reporter": "^7.2.0",
     "dotenv": "^16.4.7",
-    "wdio-cucumber-html-reporter": "^0.0.36"
+    "wdio-cucumberjs-json-reporter": "^6.0.1"
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
     "upload": "yarn wdio wdio.conf.ts --cucumberOpts.tagExpression='@upload'",
     "flow": "yarn wdio wdio.conf.ts --cucumberOpts.tagExpression='@flow'"
   },
-  "dependencies": {}
+  "dependencies": {
+    "multiple-cucumber-html-reporter": "^3.9.2"
+  }
 }
