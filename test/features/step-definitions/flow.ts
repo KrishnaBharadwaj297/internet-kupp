@@ -9,7 +9,9 @@ Given(/^I navigate to herokupp application$/, async function (){
 })
 
 Then(/^I select the upload hyperlink$/, async function () {
-    await $('=File Upload').click();
+    const selector = $('=File Upload');
+    await selector.click();
+    await browser.pause(2000);
 })
 
 Then(/^I upload a file$/, async function (){

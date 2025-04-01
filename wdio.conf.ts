@@ -134,7 +134,7 @@ export const config: WebdriverIO.Config = {
     "spec",
     ["allure", { outputDir: "allure-results" }],
     [
-      "wdio-cucumberjs-json-reporter",
+      "cucumberjs-json",
       {
         jsonFolder: "./reports/json/",
         language: "en",
