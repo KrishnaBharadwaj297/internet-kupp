@@ -13,6 +13,7 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
-    "upload": "yarn wdio wdio.conf.ts --cucumberOpts.tagExpression='@upload'"
+    "upload": "yarn wdio wdio.conf.ts --cucumberOpts.tagExpression='@upload'",
+    "flow": "yarn wdio wdio.conf.ts --cucumberOpts.tagExpression='@flow'"
   }
 }
