@@ -1,6 +1,8 @@
 import type { ChainablePromiseElement } from "webdriverio";
 
 export class Page {
+
+  uploadSelector = $(`#file-upload`);
   constructor() {}
   async navigateTo(path: string) {
     await browser.url(path);
@@ -22,8 +24,8 @@ export class Page {
   }
 
   async upload(filepath: string) {
-    const upload = $(`#file-upload`);
-    await upload.setValue(filepath);
+    // const upload = $(`#file-upload`);
+    await this.uploadSelector.setValue(filepath);
     await $("#file-submit").click();
   }
 

@@ -25,3 +25,5 @@ export function highlightElement(selector: ChainablePromiseElement, color: strin
       );
     }, duration);
   }
+
+  
